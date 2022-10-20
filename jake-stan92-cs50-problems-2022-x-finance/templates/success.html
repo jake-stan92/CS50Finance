@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Success
+{% endblock %}
+
+{% block main %}
+    <H1>Transaction Successful!</H1>
+    <br>
+    <h2>You have purchased the following:</h2>
+    <br>
+    <H3>{{ numShares }} shares in {{ name }}({{ symbol }}) @ {{ dollarPrice }}</H3>
+    <br>
+    <H3>Total = {{ dollarTotalPrice }}</H3>
+    <br>
+    <H3>Your remaining balance is {{ dollarRemainingBalance }}</H3>
+{% endblock %}

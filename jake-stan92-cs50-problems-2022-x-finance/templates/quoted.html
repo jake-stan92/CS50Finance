@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    Quoted Page
+    <h2>Info for stock: {{  symbol }}</h2>
+    <h3>Name = {{ name }}</h3>
+    <h3>Price = {{ dollarPrice }}</h3>
+{% endblock %}

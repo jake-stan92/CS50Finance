@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Failure
+{% endblock %}
+
+{% block main %}
+    <H1>Transaction Unsuccessful</H1>
+    <br>
+    <h2>Sorry, you dont have enough funds to complete this transaction.</h2>
+    <br>
+    <H3>Current Cash = {{ dollarCurrentCash }}</H3>
+    <H3>Total Cost = {{ dollarTotalPrice }}</H3>
+{% endblock %}

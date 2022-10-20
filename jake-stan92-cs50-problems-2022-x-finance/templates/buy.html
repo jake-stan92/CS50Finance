@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy Shares
+{% endblock %}
+
+{% block main %}
+    <div>Buy Page</div>
+    <div>Please enter a stock symbol (eg. NFLX, AMZN or NKE) followed by the amount you would like to buy.</div>
+    <br>
+    <form action="/buy" method="POST">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="symbol" name="symbol" placeholder="Symbol" type="text" required="true">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="# of Shares" type="number" min="1" required="true">
+        </div>
+        <div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+
+{% endblock %}
+
+
+

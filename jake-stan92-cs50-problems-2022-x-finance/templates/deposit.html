@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Deposit
+{% endblock %}
+
+{% block main %}
+    <div>Deposit Page</div>
+    <div>How much would you like to top up? (min. $50 max. $1000)</div>
+    <br>
+    <form action="/deposit" method="POST">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="deposit" name="deposit" placeholder="$$$" type="number" min="1" max="1000" required="true">
+        </div>
+        <div>
+            <button class="btn btn-primary" type="submit">Deposit</button>
+        </div>
+    </form>
+
+{% endblock %}
+
+
+

@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <h1>Your transactions</h1>
+    <table>
+        <thead>
+            <th>Product</th>
+            <th>Symbol</th>
+            <th>Amount</th>
+            <th>Total Price</th>
+            <th>Transaction Type</th>
+            <th>Date Time</th>
+        </thead>
+
+        <tbody>
+            <!-- loop 'history' sql search -->
+            {% for trans in history %}
+                <!-- create a single row for each iteration -->
+                <tr>
+                    <!-- create two cells (on same row) for each iteration -->
+                    <!-- access the data in that row (py dict) -->
+                    <td>{{ trans.product }}</td>
+                    <td>{{ trans.symbol }}</td>
+                    <td>{{ trans.amount }}</td>
+                    <td>{{ trans.totalPrice | usd }}</td>
+                    <td>{{ trans.transactionType }}</td>
+                    <td>{{ trans.dateTime }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

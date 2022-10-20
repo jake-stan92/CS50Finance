@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell Shares
+{% endblock %}
+
+{% block main %}
+    <div>Sell Shares</div>
+    <div class="section">
+        <H2>Your Current Stocks</H2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Symbol</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- TODO: Loop through the database entries to display them in this table -->
+                {% for stock in newDictList %}
+                <!-- create a single row for each iteration -->
+                    <tr>
+                        <!-- create two cells (on same row) for each iteration -->
+                        <!-- access the data in that row (py dict) -->
+                        <td>{{ stock.product }}</td>
+                        <td>{{ stock.symbol }}</td>
+                        <td>{{ stock.amount }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <H3>
+            Please enter a symbol and an amount of stocks you want to sell...
+        </H3>
+    </div>
+
+    <div>
+        <form action="/sell" method="POST">
+            <div class="mb-3">
+                <!-- # box for name of stock to sell-->
+                <label for="Stock Symbol">Choose Stock Symbol</label>
+                    <select name="symbol">
+                    {% for symbol in ownedStocksSymbols %}
+                        <option value="{{ symbol }}" SELECTED>{{ symbol }}</option>
+                    {% endfor %}
+                    </select>
+            </div>
+
+            <div>
+                <!-- # box for amount they want to sell-->
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="# of shares to sell" type="number" required="true" min="1">
+            </div>
+            <br>
+            <div>
+                <!-- # box to confirm sell-->
+                <button class="btn btn-primary" type="submit">SELL!</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
